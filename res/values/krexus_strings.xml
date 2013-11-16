@@ -197,4 +197,8 @@
     <string name="notifications_frequency_limit_title">Limit notification frequency</string>
     <string name="notifications_frequency_limit_never">Never</string>
     <string name="notifications_frequency_limit_setting">"Every %1$s seconds"</string>
+
+    <!-- Display Settings -->
+    <!-- Font size sample text -->
+    <string name="font_size_sample">This is an example</string>
 </resources>
