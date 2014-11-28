@@ -60,4 +60,8 @@
     
     <!-- RAM: Memory Info -->
     <string name="mem_info">RAM</string>
+
+    <!-- IME switcher button in the navbar -->
+    <string name="ime_switcher_title">IME switcher</string>
+    <string name="ime_switcher_summary">Display the input method button in the navigation bar</string>
 </resources>
