@@ -169,6 +169,14 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         mIm = (InputManager)activity.getSystemService(Context.INPUT_SERVICE);
         updateInputDevices();
 
+        // Enable or disable showImeSwitcher based on boolean show_ongoing_ime_switcher
+        boolean showImeSwitcher = getResources().getBoolean(
+                com.android.internal.R.bool.show_ongoing_ime_switcher);
+        if (!showImeSwitcher) {
+            getPreferenceScreen().removePreference(
+                    findPreference(Settings.System.NAVBAR_IME_SWITCHER));
+        }
+
         // Spell Checker
         final Preference spellChecker = findPreference(KEY_SPELL_CHECKERS);
         if (spellChecker != null) {
