@@ -51,6 +51,12 @@
         <!-- Enabled input method list will be populated programmatically here. -->
     </PreferenceCategory>
     
+    <com.android.settings.krexus.preference.SystemSettingSwitchPreference
+            android:key="navbar_ime_switcher"
+            android:title="@string/ime_switcher_title"
+            android:summary="@string/ime_switcher_summary"
+            android:defaultValue="true" />
+
     <PreferenceCategory
             android:key="cursor"
             android:title="@string/cursor_section_header">
