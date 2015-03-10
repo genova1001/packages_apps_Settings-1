@@ -343,7 +343,7 @@ public class DataUsageSummary extends HighlightingFragment implements Indexable 
             throw new RuntimeException(e);
         }
 
-        mShowWifi = mPrefs.getBoolean(PREF_SHOW_WIFI, false);
+        mShowWifi = mPrefs.getBoolean(PREF_SHOW_WIFI, true);
         mShowDataUsage = mPrefs.getBoolean(PREF_SHOW_DATA_USAGE, false);
         mShowEthernet = mPrefs.getBoolean(PREF_SHOW_ETHERNET, false);
 
