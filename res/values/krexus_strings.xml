@@ -127,4 +127,7 @@
     <!-- Status bar & navigation bar settings -->
     <string name="statusbar_section_header">Status bar</string>
     <string name="navigationbar_section_header">Navigation bar</string>
+
+    <!-- Dev Options Enabled by Default -->
+    <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>
 </resources>
