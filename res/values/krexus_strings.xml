@@ -81,6 +81,8 @@
 
     <!-- Battery percentage -->
     <string name="status_bar_battery_percentage_title">Show battery percentage</string>
+    <string name="status_bar_battery_percentage_low_only_title">Only when battery is low</string>
+    <string name="status_bar_battery_percentage_low_only_summary">Show battery percentage only when the battery level is under %1$d%%</string>    
     <string name="status_bar_battery_percentage_dialog_title">Battery percentage</string>
     <string name="status_bar_battery_percentage_default">Hidden (default)</string>
     <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
