@@ -74,7 +74,7 @@ public class SystemUISettings extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-	int lowBatteryWarningLevel = getResources().getInteger(com.android.internal.R.integer.config_lowBatteryWarningLevel);
+	int lowBatteryWarningLevel = getResources().getInteger(com.android.internal.R.integer.config_batteryPercentLowOnlyLevel);
 
         addPreferencesFromResource(R.xml.krexus_system_ui_settings);
 
