@@ -69,6 +69,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_REGULATORY_INFO = "regulatory_info";
     private static final String KEY_SYSTEM_UPDATE_SETTINGS = "system_update_settings";
     private static final String PROPERTY_URL_SAFETYLEGAL = "ro.url.safetylegal";
+    private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
     private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_BUILD_NUMBER = "build_number";
@@ -133,6 +134,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         setValueSummary(KEY_QGP_VERSION, PROPERTY_QGP_VERSION);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
+        setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
 
         // Remove QGP Version if property is not present
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_QGP_VERSION,
