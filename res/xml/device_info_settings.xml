@@ -17,6 +17,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/about_settings">
 
+        <!-- Krexus Logo Header -->
+        <PreferenceScreen android:key="krexus_logo"
+                android:layout="@layout/about_logo_row" />
+
         <!-- Changelog -->
         <PreferenceScreen android:key="changelog"
                 android:title="@string/changelog_title"
