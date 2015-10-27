@@ -64,4 +64,8 @@
     <!-- IME switcher button in the navbar -->
     <string name="ime_switcher_title">IME switcher</string>
     <string name="ime_switcher_summary">Display the input method button in the navigation bar</string>
+
+    <!-- System UI dashboard category -->
+    <string name="system_ui_settings_title">System UI</string>
+    <string name="keywords_system_ui">statusbar navigationbar quick settings</string>
 </resources>
