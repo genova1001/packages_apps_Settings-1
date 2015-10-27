@@ -5,6 +5,13 @@
     android:title="@string/system_ui_settings_title"
     settings:keywords="@string/keywords_system_ui" >
 
+    <!-- Statusbar -->
+    <PreferenceCategory
+        android:key="statusbar"
+        android:title="@string/statusbar_section_header" >
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="clockdate"
         android:title="@string/clockdate_section_header" >
@@ -71,6 +78,13 @@
             android:dialogTitle="@string/status_bar_battery_percentage_dialog_title"
             android:entries="@array/status_bar_battery_percentage_entries"
             android:entryValues="@array/status_bar_battery_percentage_values" />
+
+    </PreferenceCategory>
+
+    <!-- Navigation bar -->
+    <PreferenceCategory
+        android:key="navigationbar"
+        android:title="@string/navigationbar_section_header" >
 
     </PreferenceCategory>
 
