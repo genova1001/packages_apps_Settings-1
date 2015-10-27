@@ -110,6 +110,14 @@
                 android:icon="@drawable/ic_settings_notifications"
                 />
 
+	<!-- SystemUI Settings -->
+        <dashboard-tile
+                android:id="@+id/system_ui_settings"
+                android:title="@string/system_ui_settings_title"
+                android:fragment="com.android.settings.krexus.SystemUISettings"
+                android:icon="@drawable/ic_settings_system_ui"
+                />      
+
         <!-- Application Settings -->
         <dashboard-tile
                 android:id="@+id/application_settings"
