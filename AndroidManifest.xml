@@ -2450,6 +2450,9 @@
                 android:value="true" />
         </activity>
 
+        <!-- System UI settings activity -->
+        <activity android:name=".krexus.SystemUISettings" />
+
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"
                 android:exported="false"
