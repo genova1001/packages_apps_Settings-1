@@ -123,4 +123,8 @@
     <string name="lockscreen_wallpaper_set_title">Set lock screen wallpaper</string>
     <string name="lockscreen_wallpaper_clear_title">Clear lock screen wallpaper</string>
     <string name="reset_lockscreen_wallpaper">Lockscreen wallpaper cleared</string>
+
+    <!-- Status bar & navigation bar settings -->
+    <string name="statusbar_section_header">Status bar</string>
+    <string name="navigationbar_section_header">Navigation bar</string>
 </resources>
