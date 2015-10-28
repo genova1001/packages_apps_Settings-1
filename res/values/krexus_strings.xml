@@ -130,4 +130,10 @@
 
     <!-- Dev Options Enabled by Default -->
     <string name="show_dev_already_enabled">No Need, Development settings are enabled by default.</string>
+
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_statusbar_title">Items</string>
+    <string name="systemui_tuner_statusbar_summary">Show/hide statusbar items</string>
+    <string name="systemui_tuner_qs_title">Quick settings</string>
+    <string name="systemui_tuner_qs_summary">Modify your tiles</string>
 </resources>

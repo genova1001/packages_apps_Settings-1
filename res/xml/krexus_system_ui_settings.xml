@@ -10,6 +10,26 @@
         android:key="statusbar"
         android:title="@string/statusbar_section_header" >
 
+         <PreferenceScreen
+            android:key="systemui_tuner_statusbar"
+            android:title="@string/systemui_tuner_statusbar_title"
+	    android:summary="@string/systemui_tuner_statusbar_summary" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.TunerActivity" />
+         </PreferenceScreen>
+
+         <PreferenceScreen
+            android:key="systemui_tuner_qs"
+            android:title="@string/systemui_tuner_qs_title"
+	    android:summary="@string/systemui_tuner_qs_summary" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.QsActivity" />
+         </PreferenceScreen>
+
     </PreferenceCategory>
 
     <PreferenceCategory
