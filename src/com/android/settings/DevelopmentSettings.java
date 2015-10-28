@@ -101,9 +101,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
      */
     public static final String PREF_SHOW = "show";
 
-    private static final ComponentName SYSUI_TUNER = new ComponentName("com.android.systemui",
-            "com.android.systemui.tuner.TunerActivity");
-
     private static final String ENABLE_ADB = "enable_adb";
     private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
     private static final String ENABLE_TERMINAL = "enable_terminal";
@@ -116,7 +113,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String HARDWARE_UI_PROPERTY = "persist.sys.ui.hw";
     private static final String MSAA_PROPERTY = "debug.egl.force_msaa";
     private static final String OPENGL_TRACES_PROPERTY = "debug.egl.trace";
-    private static final String TUNER_UI_KEY = "tuner_ui";
 
     private static final String DEBUG_APP_KEY = "debug_app";
     private static final String WAIT_FOR_DEBUGGER_KEY = "wait_for_debugger";
@@ -276,8 +272,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private Dialog mAdbKeysDialog;
     private boolean mUnavailable;
 
-    private SwitchPreference mTunerUiPref;
-
     @Override
     protected int getMetricsCategory() {
         return MetricsLogger.DEVELOPMENT;
@@ -417,8 +411,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mResetSwitchPrefs.add(mShowAllANRs);
 
         mKillAppLongpressBack = findAndInitSwitchPref(KILL_APP_LONGPRESS_BACK);
-
-        mTunerUiPref = findAndInitSwitchPref(TUNER_UI_KEY);
 
         Preference hdcpChecking = findPreference(HDCP_CHECKING_KEY);
         if (hdcpChecking != null) {
@@ -638,7 +630,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         updateSimulateColorSpace();
         updateUSBAudioOptions();
 	updateAdvancedRebootOptions();
-	updateTweakUi();
     }
 
     private void writeAdvancedRebootOptions() {
@@ -1172,21 +1163,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             Settings.Secure.putInt(cr, Settings.Secure.ACCESSIBILITY_DISPLAY_DALTONIZER_ENABLED, 1);
             Settings.Secure.putInt(cr, Settings.Secure.ACCESSIBILITY_DISPLAY_DALTONIZER, newMode);
         }
-    }
-
-    private void updateTweakUi() {
-        updateSwitchPreference(mTunerUiPref, getActivity().getPackageManager()
-                .getComponentEnabledSetting(SYSUI_TUNER)
-                == PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
-        mTunerUiPref.setOnPreferenceChangeListener(this);
-    }
-
-    private void writeTweakUi(Object newValue) {
-        Boolean enabled = (Boolean) newValue;
-        getActivity().getPackageManager().setComponentEnabledSetting(SYSUI_TUNER,
-                enabled ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-                        : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                        PackageManager.DONT_KILL_APP);
     }
 
     private void updateUSBAudioOptions() {
@@ -1785,9 +1761,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
             return true;
         } else if (preference == mSimulateColorSpace) {
             writeSimulateColorSpace(newValue);
-            return true;
-        } else if (preference == mTunerUiPref) {
-            writeTweakUi(newValue);
             return true;
         }
         return false;
