@@ -19,7 +19,8 @@
 
         <!-- Krexus Logo Header -->
         <PreferenceScreen android:key="krexus_logo"
-                android:layout="@layout/about_logo_row" />
+                android:layout="@layout/about_logo_row"
+		android:fragment="com.android.settings.krexus.KrexusAbout" />
 
         <!-- Changelog -->
         <PreferenceScreen android:key="changelog"
