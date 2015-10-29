@@ -136,4 +136,17 @@
     <string name="systemui_tuner_statusbar_summary">Show/hide statusbar items</string>
     <string name="systemui_tuner_qs_title">Quick settings</string>
     <string name="systemui_tuner_qs_summary">Modify your tiles</string>
+
+    <!-- About Krexus -->
+    <string name="krexus_about_title">About Krexus</string>
+    <string name="krexus_about_info">ROM</string>
+    <string name="krexus_about_info_summary">Krexus was born out of a simple necessity. The latest releases of stock Android (namely lollipop and marshmallow) were pretty close to my idea of a perfect android ROM, yet missing some elements, which are meant to be included in stock Android, at least for me. Starting from a clean AOSP environment, only specific features and fixes are included, which are personally tested, with one goal in mind. To create a stock like android ROM, <i>\"as it should be\"</i>.</string>
+    <string name="krexus_about_devs">Developer</string>
+    <string name="krexus_about_dev_title">George G.</string>
+    <string name="krexus_about_dev_summary">Otherwise known as \"KreAch3R\". Nexus 5 (hammerhead) owner.</string>
+    <string name="krexus_about_mentions">Mentions</string>
+    <string name="krexus_about_mention1_title">Achilleas G.</string>
+    <string name="krexus_about_mention1_summary">Always being there</string>
+    <string name="krexus_about_mention2_title">Aldrin Holmes</string>
+    <string name="krexus_about_mention2_summary">Mentor, teacher, friend</string>
 </resources>
