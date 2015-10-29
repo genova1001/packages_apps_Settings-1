@@ -39,6 +39,8 @@ public class SystemUISettings extends SettingsPreferenceFragment
     private static final String PREF_CLOCK_DATE_FORMAT = "clock_date_format";
     private static final String STATUS_BAR_CLOCK = "status_bar_show_clock";
 
+    private static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+
     private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
     private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
 
@@ -55,6 +57,8 @@ public class SystemUISettings extends SettingsPreferenceFragment
     private ListPreference mClockDateStyle;
     private ListPreference mClockDateFormat;
     private SwitchPreference mStatusBarClock;
+    
+    private ListPreference mNavigationBarHeight;
 
     private boolean mCheckPreferences;
 
@@ -142,7 +146,15 @@ public class SystemUISettings extends SettingsPreferenceFragment
         if (!mClockDateToggle) {
             mClockDateStyle.setEnabled(false);
             mClockDateFormat.setEnabled(false);
-	}
+	    }
+	     
+	    // navigation bar height
+        mNavigationBarHeight = (ListPreference) findPreference(NAVIGATION_BAR_HEIGHT);
+        mNavigationBarHeight.setOnPreferenceChangeListener(this);
+        int statusNavigationBarHeight = Settings.System.getInt(getContentResolver(),
+                Settings.System.NAVIGATION_BAR_HEIGHT, 48);
+        mNavigationBarHeight.setValue(String.valueOf(statusNavigationBarHeight));
+        mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntry());
     }
 
     @Override
@@ -255,6 +267,13 @@ public class SystemUISettings extends SettingsPreferenceFragment
                 }
             }
             return true;
+        } else if (preference == mNavigationBarHeight) {
+            int statusNavigationBarHeight = Integer.valueOf((String) newValue);
+            int index = mNavigationBarHeight.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(), NAVIGATION_BAR_HEIGHT,
+                    statusNavigationBarHeight);
+            mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntries()[index]);
+        return true;
         }
         return false;
     }
