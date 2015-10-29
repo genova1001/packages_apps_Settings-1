@@ -106,6 +106,14 @@
         android:key="navigationbar"
         android:title="@string/navigationbar_section_header" >
 
+        <ListPreference
+            android:key="navigation_bar_height"
+            android:dialogTitle="@string/navigation_bar_height"
+            android:title="@string/navigation_bar_height"
+            android:entries="@array/navigation_bar_height_entries"
+            android:entryValues="@array/navigation_bar_height_values"
+            android:persistent="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
