@@ -46,4 +46,14 @@
         android:layout="?android:attr/preferenceLayoutChild"
         android:dependency="accelerometer" />
 
+    <PreferenceCategory
+        android:key="display_rotation_advanced"
+        android:title="@string/advanced_section_header" />
+     <com.android.settings.krexus.preference.SystemSettingSwitchPreference
+        android:key="swap_volume_buttons"
+        android:title="@string/swap_volume_buttons_title"
+        android:summary="@string/swap_volume_buttons_summary"
+	android:dependency="accelerometer"
+        android:defaultValue="true"/>
+
 </PreferenceScreen>
