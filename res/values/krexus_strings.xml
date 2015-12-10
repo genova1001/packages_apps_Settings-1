@@ -174,4 +174,8 @@
     <!-- BitSyko Layers development settings switch -->
     <string name="bitsyko_layers_dashboard">Layers manager</string>
     <string name="bitsyko_layers_dashboard_summary">Show the manager in the Settings dashboard</string>
+
+    <!-- Volume button orientation based on current rotation -->
+    <string name="swap_volume_buttons_title">Swap volume rocker orientation</string>
+    <string name="swap_volume_buttons_summary">Adjust the rocker orientation based on current rotation</string>
 </resources>
