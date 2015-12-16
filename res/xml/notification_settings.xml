@@ -54,6 +54,12 @@
                 android:title="@string/vibrate_when_ringing_title"
                 android:persistent="false" />
 
+	<!-- Volume keys control media stream -->
+        <com.android.settings.krexus.preference.SystemSettingSwitchPreference
+        	android:key="volume_key_control_media"
+   	        android:title="@string/volume_key_control_media"
+	        android:defaultValue="false"/>
+
         <!-- Interruptions -->
         <PreferenceScreen
                 android:key="zen_mode"
