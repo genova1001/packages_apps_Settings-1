@@ -124,7 +124,8 @@
 
             <SwitchPreference
                 android:key="volume_rocker_wake"
-                android:summary="@string/volume_rocker_wake_summary"
+                android:summaryOn="@string/volume_rocker_wake_summary_on"
+		android:summaryOff="@string/volume_rocker_wake_summary_off"
                 android:title="@string/volume_rocker_wake_title" />
              
     </PreferenceCategory>
