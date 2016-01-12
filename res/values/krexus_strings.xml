@@ -189,4 +189,8 @@
 
     <!-- Hostname setting -->
     <string name="device_hostname">Device hostname</string>
+
+    <!-- Recents search bar (part of the voice & assist default app) -->
+    <string name="recents_searchbar_title"> Show widget</string>
+    <string name="recents_searchbar_summary">Allow the assist app to show a widget (e.g. a searchbar) in recents</string>
 </resources>
