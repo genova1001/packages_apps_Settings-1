@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- About phone screen, build date of ROM -->
+    <string name="build_date">Date de la build</string>
+    <string name="build_date_default">2015-10-05-0000</string>
+
+    <!-- Changelog -->
+    <string name="changelog_title">Changelog</string>
+    <string name="changelog_summary">Depuis la dernière mise à jour</string>
+    <string name="changelog_error">Impossible de charger le changelog</string>
+
+    <!-- About phone screen, processor info label  [CHAR LIMIT=40] -->
+    <string name="processor_info">Processeur</string>
+    
+    <!-- About phone screen, Device model -->
+    <string name="device_model">Modele de l\'appareil</string>
+    <!-- About phone screen, Device name -->
+    <string name="device_name">Nom de l\'appareil</string>
+
+    <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
+    <string name="supersu_title">SuperSU</string>
+
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Redémarrage avancé</string>
+    <string name="advanced_reboot_summary">Lorsque l\'appareil est déverrouillé, inclure des options dans le menu de puissance pour redémarrer en recovery, bootloader ou d\'effectuer un hot reboot</string>
+
+    <!-- Sound & notification > Notification section: Title for the charging battery light option. [CHAR LIMIT=30] -->
+    <string name="charging_led_title">LED lors du chargement de batterie</string>
+    
+    <!-- Sound & notification > Notification section: Summary for the charging battery light kernel support. [CHAR LIMIT=30] -->
+    <string name="charging_led_support_info">3rd party kernel with the \"led always on\" patch is required.</string> 
+
+    <!-- Development options - kill app long press back -->
+    <string name="kill_app_longpress_back">Le bouton retour est le bouton tuer</string>
+    <string name="kill_app_longpress_back_summary">Tuez l\'app du premier plan en appuyant longuement sur la touche retour</string>
+
+    <!-- Language options - Volume rocker cursor control -->
+    <string name="cursor_section_header">Curseur</string>
+    <string name="volume_key_cursor_control_title">Curseur commandé par le volume</string>
+    <string name="volume_key_cursor_control_off">Désactivé</string>
+    <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
+    <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
+
+    <!-- Wakeup section under Display settings -->
+    <string name="wakeup_section_header">Réveil</string>
+    <!-- Volume rocker wake -->
+    <string name="volume_rocker_wake_title">Réveiller par la touche volume</string>
+    <string name="volume_rocker_wake_summary_on">les contrôles de la musique écran éteint sont désactivées</string>
+    <string name="volume_rocker_wake_summary_off">Un appuie sur la touche volume réveillera votre appareil\nAVERTISSEMENT: Activer cette option désactive les commandes de musique écran éteint</string>
+     
+    <!-- Display : Rotation -->
+    <string name="display_rotation_title">Rotation</string>
+    <string name="display_rotation_disabled">Désactivé</string>
+    <string name="display_rotation_unit">degrés</string>
+    <string name="display_rotation_category_title">Modes de rotation</string>
+    <string name="display_rotation_0_title">0 degré</string>
+    <string name="display_rotation_90_title">90 degrés</string>
+    <string name="display_rotation_180_title">180 degrés</string>
+    <string name="display_rotation_270_title">270 degrés</string>  
+    
+    <!-- RAM: Memory Info -->
+    <string name="mem_info">RAM</string>
+
+    <!-- IME switcher button in the navbar -->
+    <string name="ime_switcher_title">IME switcher</string>
+    <string name="ime_switcher_summary">Display the input method button in the navigation bar</string>
+
+    <!-- System UI dashboard category -->
+    <string name="system_ui_settings_title">IU Système</string>
+    <string name="keywords_system_ui">barre de statut barre de naviguation paramètres rapide</string>
+
+    <!-- Battery options -->
+    <string name="battery_section_header">Batterie</string>
+    <string name="status_bar_battery_style_title">Style de l\'icône de batterie</string>
+    <string name="status_bar_battery_style_icon_portrait">Icône en portrait</string>
+    <string name="status_bar_battery_style_icon_landscape">Icône en paysage</string>
+    <string name="status_bar_battery_style_circle">Cercle</string>
+    <string name="status_bar_battery_style_dotted_circle">Cercle en pointillés</string>
+    <string name="status_bar_battery_style_text">Texte</string>
+    <string name="status_bar_battery_style_hidden">Caché</string>
+
+    <!-- Battery percentage -->
+    <string name="status_bar_battery_percentage_title">Afficher le pourcentage de batterie</string>
+    <string name="status_bar_battery_percentage_low_only_title">Juste quand la batterie est faible</string>
+    <string name="status_bar_battery_percentage_low_only_summary">Afficher le pourcentage de batterie quand elle est inférieur à %1$d%%</string>    
+    <string name="status_bar_battery_percentage_dialog_title">Pourcentage de batterie</string>
+    <string name="status_bar_battery_percentage_default">Caché (défaut)</string>
+    <string name="status_bar_battery_percentage_text_inside">Dans l\'icône</string>
+    <string name="status_bar_battery_percentage_text_next">A coté de l\'icône</string>
+
+    <!-- Clock & date -->
+    <string name="clockdate_section_header">Heure &amp; date</string>
+    <string name="clock_title_enable">Alignement</string>
+    <string name="clock_enabled">Activé</string>
+    <string name="clock_disabled">Désactivé</string>
+    <string name="status_bar_show_clock_title">Afficher l\'heure et la date</string>
+    <string name="status_bar_am_pm_title">AM/PM</string>
+    <string name="status_bar_am_pm_info">Heure 24/24 est activée</string>
+    <string name="enable_clock_weekday">Jour de la semaine</string>
+    <string name="enable_clock_weekday_summary">Abrégé le jour de la semaine avant l\'heure</string>
+    <string name="right_clock">Heure à droite</string>
+    <string name="center_clock">Heure au centre</string>
+    <string name="left_clock">Heure à gauche</string>
+    <string name="dont_show">Ne pas afficher</string>
+    <string name="clock_date_display">Date</string>
+    <string name="clock_date_display_summary">Afficher la date personnalisé avant l\'heure</string>
+    <string name="clock_date_style">Style de la date</string>
+    <string name="clock_date_format">Format de la date</string>
+    <string name="clock_date_string_edittext_title">Doit être au format eg. JJ/MM/AAAA</string>
+    <string name="clock_date_string_edittext_summary">Entrer une valeur</string>
+    <string name="am_pm_clock_normal">Taille de police normale</string>
+    <string name="am_pm_clock_small">Taille de police petite</string>
+    <string name="am_pm_clock_none">Ne pas afficher</string>
+    <string name="clock_date_display_none">Ne pas afficher</string>
+    <string name="clock_date_display_small">Taille de police petite</string>
+    <string name="clock_date_display_normal">Taille de police normale</string>
+    <string name="clock_date_style_normal">Normale</string>
+    <string name="clock_date_style_lowercase">Minuscule</string>
+    <string name="clock_date_style_uppercase">Majuscule</string>
+    <string name="clock_date_format_custom">Format java personnalisée</string>
+
+    <!-- Lock screen settings -->
+    <string name="lockscreen_settings_title">Fond d\'écran</string>
+    <string name="lockscreen_wallpaper_title">Ecran de verrouillage</string>
+    <string name="lockscreen_wallpaper_set_title">Définir le fond d\'écran</string>
+    <string name="lockscreen_wallpaper_clear_title">Effacer le fond d\'écran</string>
+    <string name="reset_lockscreen_wallpaper">Fond d\'écran de verrouillage effacé</string>
+
+    <!-- Status bar & navigation bar settings -->
+    <string name="statusbar_section_header">Barre de satut</string>
+    <string name="navigationbar_section_header">Barre de naviguation</string>
+
+    <!-- Dev Options Enabled by Default -->
+    <string name="show_dev_already_enabled">Pas besoin, les paramètres de développement sont activées par défaut.</string>
+
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_statusbar_title">Icônes</string>
+    <string name="systemui_tuner_statusbar_summary">Afficher/cacher des icônes sur la barre de statut</string>
+    <string name="systemui_tuner_qs_title">Paramètres rapide</string>
+    <string name="systemui_tuner_qs_summary">Modifier les tuiles</string>
+
+    <!-- About Krexus -->
+    <string name="krexus_about_title">À propos de Krexus</string>
+    <string name="krexus_about_info">ROM</string>
+    <string name="krexus_about_info_summary">Krexus est née à partir d\'une simple nécessité. Les dernières versions Android (à savoir Lollipop et Marshmallow) étaient assez proche de mon idée : une ROM Android parfaite, mais il manquait certains éléments, qui sont destinés à être inclus dans Android, du moins pour moi. À partir d\'un environnement propre de l\'AOSP, seules quelques fonctionnalités et corrections sont inclus, qui sont personnellement testé, avec un seul objectif à l\'esprit : créer une ROM Android <i>\"comme il se doit\"</i>.</string>
+    <string name="krexus_about_dev_title">George G.</string>
+    <string name="krexus_about_dev_summary">Autrement connu comme \"KreAch3R\". Propriétaire du Nexus 5 (hammerhead) .</string>
+    <string name="krexus_about_mentions">Mentions</string>
+    <string name="krexus_about_mention1_title">Achilleas G.</string>
+    <string name="krexus_about_mention1_summary">Étant toujours là</string>
+    <string name="krexus_about_mention2_title">Aldrin Holmes</string>
+    <string name="krexus_about_mention2_summary">Mentor, professeur, ami</string>
+
+    <!-- Navigation Bar Height -->
+    <string name="navigation_bar_height">Hauteur de la barre de navigation</string>
+    <string name="navigation_bar_height_48">48dp (défaut)</string>
+    <string name="navigation_bar_height_44">44dp</string>
+    <string name="navigation_bar_height_40">40dp</string>
+    <string name="navigation_bar_height_36">36dp</string>
+    <string name="navigation_bar_height_32">32dp</string>
+    <string name="navigation_bar_height_28">28dp</string>
+    <string name="navigation_bar_height_24">24dp</string>
+    <string name="navigation_bar_height_20">20dp</string>
+    <string name="navigation_bar_height_0">0dp (caché)</string>
+
+    <!-- Battery saver color -->
+    <string name="battery_saver_color_title">Couleur d\'avertissement</string>
+    <string name="battery_saver_color_summary">Activer les barre orange - barre de navigation lorsque l\'économiseur de batterie est activé</string>
+
+    <!--  BitSyko Layers header name -->
+    <string name="bitsyko_layers">Layers</string>
+
+    <!-- BitSyko Layers development settings switch -->
+    <string name="bitsyko_layers_dashboard">Layers manager</string>
+    <string name="bitsyko_layers_dashboard_summary">Montrer le gestionnaire dans les paramètres</string>
+
+    <!-- Volume button orientation based on current rotation -->
+    <string name="swap_volume_buttons_title">Bascule de l\'orientation des touches volume</string>
+    <string name="swap_volume_buttons_summary">Ajuster l\'orientation des touches volume dans la rotation actuelle</string>
+
+   <!-- Volume keys control media stream, instead of ring/notification -->
+   <string name="volume_key_control_media">Boutons contrôlent les médias</string>
+
+    <!-- Quick settings disable on lockscreen -->
+    <string name="block_on_secure_keyguard_title">Désactiver les paramètres rapides</string>
+    <string name="block_on_secure_keyguard_summary">Sur l\'écran de verouillage sécurisé</string>
+
+    <!-- Hostname setting -->
+    <string name="device_hostname">Device hostname</string>
+
+    <!-- Recents search bar (part of the voice & assist default app) -->
+    <string name="recents_searchbar_title">Afficher les widget</string>
+    <string name="recents_searchbar_summary">Autoriser les applications aider à afficher un widget (par exemple une barre de recherche) dans les recents</string>
+</resources>
