@@ -193,4 +193,9 @@
     <!-- Recents search bar (part of the voice & assist default app) -->
     <string name="recents_searchbar_title"> Show widget</string>
     <string name="recents_searchbar_summary">Allow the assist app to show a widget (e.g. a searchbar) in recents</string>
+
+   <!-- Notifications frequency --> 
+    <string name="notifications_frequency_limit_title">Limit notification frequency</string>
+    <string name="notifications_frequency_limit_never">Never</string>
+    <string name="notifications_frequency_limit_setting">"Every %1$s seconds"</string>
 </resources>
