@@ -108,6 +108,9 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
     private NetworkScoreManager mNetworkScoreManager;
     private AppListSwitchPreference mWifiAssistantPreference;
 
+    private Preference mWpsPushPref;
+    private Preference mWpsPinPref;
+
     private IntentFilter mFilter;
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -116,6 +119,15 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
             if (action.equals(WifiManager.LINK_CONFIGURATION_CHANGED_ACTION) ||
                 action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
                 refreshWifiInfo();
+            } else if (action.equals(WifiManager.WIFI_STATE_CHANGED_ACTION)) {
+                int state = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, WifiManager.WIFI_STATE_UNKNOWN);
+                if (state == WifiManager.WIFI_STATE_ENABLED) {
+                    mWpsPushPref.setEnabled(true);
+                    mWpsPinPref.setEnabled(true);
+                } else {
+                    mWpsPushPref.setEnabled(false);
+                    mWpsPinPref.setEnabled(false);
+                }
             }
         }
     };
@@ -138,6 +150,7 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
         mFilter = new IntentFilter();
         mFilter.addAction(WifiManager.LINK_CONFIGURATION_CHANGED_ACTION);
         mFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+        mFilter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
         mNetworkScoreManager =
                 (NetworkScoreManager) getSystemService(Context.NETWORK_SCORE_SERVICE);
     }
@@ -200,8 +213,8 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
         wifiDirectPref.setIntent(wifiDirectIntent);
 
         // WpsDialog: Create the dialog like WifiSettings does.
-        Preference wpsPushPref = findPreference(KEY_WPS_PUSH);
-        wpsPushPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+        mWpsPushPref = findPreference(KEY_WPS_PUSH);
+        mWpsPushPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
                 public boolean onPreferenceClick(Preference arg0) {
                     WpsFragment wpsFragment = new WpsFragment(WpsInfo.PBC);
                     wpsFragment.show(getFragmentManager(), KEY_WPS_PUSH);
@@ -210,8 +223,8 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
         });
 
         // WpsDialog: Create the dialog like WifiSettings does.
-        Preference wpsPinPref = findPreference(KEY_WPS_PIN);
-        wpsPinPref.setOnPreferenceClickListener(new OnPreferenceClickListener(){
+        mWpsPinPref = findPreference(KEY_WPS_PIN);
+        mWpsPinPref.setOnPreferenceClickListener(new OnPreferenceClickListener(){
                 public boolean onPreferenceClick(Preference arg0) {
                     WpsFragment wpsFragment = new WpsFragment(WpsInfo.DISPLAY);
                     wpsFragment.show(getFragmentManager(), KEY_WPS_PIN);
@@ -226,6 +239,11 @@ public class AdvancedWifiSettings extends SettingsPreferenceFragment
             }
         } else {
             Log.d(TAG, "Fail to get priority pref...");
+        }
+
+        if(WifiManager.WIFI_STATE_ENABLED != mWifiManager.getWifiState()) {
+            mWpsPushPref.setEnabled(false);
+            mWpsPinPref.setEnabled(false);
         }
 
         ListPreference frequencyPref = (ListPreference) findPreference(KEY_FREQUENCY_BAND);
