@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
  * Copyright (C) 2013-2014 The CyanogenMod Project
+ * Copyright (C) 2015-2016 Krexus
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -176,6 +177,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
 
     private static final String TERMINAL_APP_PACKAGE = "com.android.terminal";
+
+    private static final String LAYERS_MANAGER_PACKAGE = "com.lovejoy777.rroandlayersmanager";
 
     private static final String ADVANCED_REBOOT = "advanced_reboot";
 
@@ -537,7 +540,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         mSwitchBar.setChecked(mLastEnabledState);
         setPrefsEnabledState(mLastEnabledState);
         updateKillAppLongpressBackOptions();
-        updateShowLayersOptions();
 
         if (mHaveDebugSettings && !mLastEnabledState) {
             // Overall debugging is disabled, but there are some debug
@@ -650,7 +652,8 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         updateMobileDataAlwaysOnOptions();
         updateSimulateColorSpace();
         updateUSBAudioOptions();
-	updateAdvancedRebootOptions();
+        updateAdvancedRebootOptions();
+        updateShowLayersOptions();
     }
 
     private void writeAdvancedRebootOptions() {
@@ -727,6 +730,9 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
     }
 
     private void updateShowLayersOptions() {
+        if (!isPackageInstalled(getActivity(), LAYERS_MANAGER_PACKAGE)) {
+            mShowLayers.setEnabled(false);
+        }
         mShowLayers.setChecked(getActivity().getSharedPreferences(PREF_FILE,
                             Context.MODE_PRIVATE).getBoolean(PREF_LAYERS, true));
     }
