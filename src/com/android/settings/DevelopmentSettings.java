@@ -539,7 +539,6 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
                 Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0;
         mSwitchBar.setChecked(mLastEnabledState);
         setPrefsEnabledState(mLastEnabledState);
-        updateKillAppLongpressBackOptions();
 
         if (mHaveDebugSettings && !mLastEnabledState) {
             // Overall debugging is disabled, but there are some debug
@@ -652,6 +651,7 @@ public class DevelopmentSettings extends SettingsPreferenceFragment
         updateMobileDataAlwaysOnOptions();
         updateSimulateColorSpace();
         updateUSBAudioOptions();
+        updateKillAppLongpressBackOptions();
         updateAdvancedRebootOptions();
         updateShowLayersOptions();
     }
