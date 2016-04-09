@@ -2908,7 +2908,6 @@
 
     <!--search function for application settings-->
     <string name="show_search_function">搜索</string>
-    <string name="profiles_settings_title">情景模式</string>
 
     <string name="timer_switch_settings_title">定時開關機</string>
     <string name="sim_enabler_title">SIM開關</string>
