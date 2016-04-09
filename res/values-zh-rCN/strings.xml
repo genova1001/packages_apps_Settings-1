@@ -2944,7 +2944,7 @@
     <!-- Roaming Data Settings -->
     <string name="label_global_roaming_settings">国际漫游设置</string>
     <string name="storage_menu_cleanup">垃圾清理</string>
-    <string name="profiles_settings_title">情景模式</string>
+
     <!-- support wifi extended function -->
     <string name="wifi_set_priority_settings_title">接入点优先级设定</string>
     <string name="wifi_set_priority_settings_summary">点击设定各接入点的优先级</string>
