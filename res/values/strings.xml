@@ -7100,7 +7100,6 @@
     <string name="label_global_roaming_settings">Roaming Settings</string>
     <string name="storage_menu_cleanup">Storage Cleanup</string>
 
-    <string name="profiles_settings_title">System profiles</string>
     <string name="hotspot_settings_menu_help">Help</string>
     <string name="hotspot_settings_desc">WLAN hotspot can share this phone\u2019s data Internet connection with other PC/mobile devices via WLAN.</string>
     <string name="hotspot_settings_indication">After the WLAN hotspot is turned on, other PC/mobile devices can connect to it and start using the internet by following steps:</string>
