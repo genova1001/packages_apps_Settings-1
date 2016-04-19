@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- About phone screen, build date of ROM -->
+    <string name="build_date">Build-Datum</string>
+    <string name="build_date_default">2015-10-05-0000</string>
+
+    <!-- Changelog -->
+    <string name="changelog_title">Changelog</string>
+    <string name="changelog_summary">Seit dem letzten Update</string>
+    <string name="changelog_error">Changelog kann nicht geladen werden</string>
+
+    <!-- About phone screen, processor info label  [CHAR LIMIT=40] -->
+    <string name="processor_info">Prozessor</string>
+    
+    <!-- About phone screen, Device model -->
+    <string name="device_model">Gerätemodell</string>
+    <!-- About phone screen, Device name -->
+    <string name="device_name">Gerätename</string>
+
+    <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
+    <string name="supersu_title">SuperSU</string>
+
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Erweitertes Neustartmenü</string>
+    <string name="advanced_reboot_summary">Bei entsperrtem Bildschirm dem Neustartmenü Optionen für Neustart in Recovery, Bootloader oder schnellen Neustart hinzufügen</string>
+
+    <!-- Sound & notification > Notification section: Title for the charging battery light option. [CHAR LIMIT=30] -->
+    <string name="charging_led_title">Akkulade-LED</string>
+    
+    <!-- Sound & notification > Notification section: Summary for the charging battery light kernel support. [CHAR LIMIT=30] -->
+    <string name="charging_led_support_info">3rd-Party Kernel mit \"LED immer an\"-Patch wird benötigt.</string> 
+
+    <!-- Development options - kill app long press back -->
+    <string name="kill_app_longpress_back">App beenden</string>
+    <string name="kill_app_longpress_back_summary">Beenden der Vordergrund-App durch Gedrückthalten der Zurück-Taste</string>
+
+    <!-- Language options - Volume rocker cursor control -->
+    <string name="cursor_section_header">Cursorsteuerung</string>
+    <string name="volume_key_cursor_control_title">Cursor mit Lautstärketasten steuern</string>
+    <string name="volume_key_cursor_control_off">Deaktiviert</string>
+    <string name="volume_key_cursor_control_on">Lauter-/Leiser-Taste bewegt den Cursor nach links/rechts</string>
+    <string name="volume_key_cursor_control_on_reverse">Lauter-/Leiser-Taste bewegt den Cursor nach rechts/links</string>
+
+    <!-- Wakeup section under Display settings -->
+    <string name="wakeup_section_header">Gerät aufwecken</string>
+    <!-- Volume rocker wake -->
+    <string name="volume_rocker_wake_title">Durch Laustärketasten aufwecken</string>
+    <string name="volume_rocker_wake_summary_on">Die Musiksteuerung bei abgeschaltetem Display ist deaktiviert</string>
+    <string name="volume_rocker_wake_summary_off">Durch Drücken der Lautstärketasten wird das Gerät aufgeweckt\nWARNUNG: Die Musiksteuerung bei abgeschaltetem Display wird deaktiviert</string>
+     
+    <!-- Display : Rotation -->
+    <string name="display_rotation_title">Bildschirmausrichtung</string>
+    <string name="display_rotation_disabled">Deaktiviert</string>
+    <string name="display_rotation_unit">Grad</string>
+    <string name="display_rotation_category_title">Bei Drehung um</string>
+    <string name="display_rotation_0_title">0 Grad</string>
+    <string name="display_rotation_90_title">90 Grad</string>
+    <string name="display_rotation_180_title">180 Grad</string>
+    <string name="display_rotation_270_title">270 Grad</string>  
+    
+    <!-- RAM: Memory Info -->
+    <string name="mem_info">RAM</string>
+
+    <!-- IME switcher button in the navbar -->
+    <string name="ime_switcher_title">Eingabemethodenauswahl</string>
+    <string name="ime_switcher_summary">Zeige Symbol für Eingabemethodenauswahl in der Navigationsleiste</string>
+
+    <!-- System UI dashboard category -->
+    <string name="system_ui_settings_title">System UI</string>
+    <string name="keywords_system_ui">Statusleiste Navigationsleiste Schnelleinstellungen</string>
+
+    <!-- Battery options -->
+    <string name="battery_section_header">Akku</string>
+    <string name="status_bar_battery_style_title">Akkuanzeige</string>
+    <string name="status_bar_battery_style_icon_portrait">Symbol (Hochformat)</string>
+    <string name="status_bar_battery_style_icon_landscape">Symbol (Querformat)</string>
+    <string name="status_bar_battery_style_circle">Kreis</string>
+    <string name="status_bar_battery_style_dotted_circle">Gepunkteter Kreis</string>
+    <string name="status_bar_battery_style_text">Text</string>
+    <string name="status_bar_battery_style_hidden">Ausgeblendet</string>
+
+    <!-- Battery percentage -->
+    <string name="status_bar_battery_percentage_title">Akkustand in Prozent</string>
+    <string name="status_bar_battery_percentage_low_only_title">Nur bei niedrigem Akkustand</string>
+    <string name="status_bar_battery_percentage_low_only_summary">Zeige die Akkuprozentanzeige nur wenn der Akkustand unter %1$d%% liegt</string>    
+    <string name="status_bar_battery_percentage_dialog_title">Akkuprozentanzeige</string>
+    <string name="status_bar_battery_percentage_default">Ausgeblendet (Standard)</string>
+    <string name="status_bar_battery_percentage_text_inside">Innerhalb des Symbols</string>
+    <string name="status_bar_battery_percentage_text_next">Neben dem Symbol</string>
+
+    <!-- Clock & date -->
+    <string name="clockdate_section_header">Uhrzeit &amp; Datum</string>
+    <string name="clock_title_enable">Ausrichtung</string>
+    <string name="clock_enabled">Aktiviert</string>
+    <string name="clock_disabled">Deaktiviert</string>
+    <string name="status_bar_show_clock_title">Zeige Uhr und Datum an</string>
+    <string name="status_bar_am_pm_title">AM/PM-Format</string>
+    <string name="status_bar_am_pm_info">24-Stunden-Format ist aktiviert</string>
+    <string name="enable_clock_weekday">Wochentag</string>
+    <string name="enable_clock_weekday_summary">Zeige den Wochentag vor der Uhrzeit an</string>
+    <string name="right_clock">Rechts</string>
+    <string name="center_clock">Zentriert</string>
+    <string name="left_clock">Links</string>
+    <string name="dont_show">Ausgeblendet</string>
+    <string name="clock_date_display">Datum</string>
+    <string name="clock_date_display_summary">Zeige das Datum vor der Uhrzeit an</string>
+    <string name="clock_date_style">Datumsstil</string>
+    <string name="clock_date_format">Datumsformat</string>
+    <string name="clock_date_string_edittext_title">Datumsformat</string>
+    <string name="clock_date_string_edittext_summary">Java Datumsformat, z.B. dd.MM.yy</string>
+    <string name="am_pm_clock_normal">Normale Schriftgröße</string>
+    <string name="am_pm_clock_small">Kleine Schriftgröße</string>
+    <string name="am_pm_clock_none">Ausgeblendet</string>
+    <string name="clock_date_display_none">Ausgeblendet</string>
+    <string name="clock_date_display_small">Kleine Schriftgröße</string>
+    <string name="clock_date_display_normal">Normale Schriftgröße</string>
+    <string name="clock_date_style_normal">Normal</string>
+    <string name="clock_date_style_lowercase">Kleingeschrieben</string>
+    <string name="clock_date_style_uppercase">Großgeschrieben</string>
+    <string name="clock_date_format_custom">Benutzerdefiniert</string>
+
+    <!-- Lock screen settings -->
+    <string name="lockscreen_settings_title">Bildschirmhintergrund</string>
+    <string name="lockscreen_wallpaper_title">Sperrbildschirm</string>
+    <string name="lockscreen_wallpaper_set_title">Bildschirmhintergrund festlegen</string>
+    <string name="lockscreen_wallpaper_clear_title">Bildschirmhintergrund entfernen</string>
+    <string name="reset_lockscreen_wallpaper">Bildschirmhintergrund entfernt</string>
+
+    <!-- Status bar & navigation bar settings -->
+    <string name="statusbar_section_header">Statusleiste</string>
+    <string name="navigationbar_section_header">Navigationsleiste</string>
+
+    <!-- Dev Options Enabled by Default -->
+    <string name="show_dev_already_enabled">Nicht benötigt, da die Entwickleroptionen standardmäßig aktiviert sind.</string>
+
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_statusbar_title">Symbole</string>
+    <string name="systemui_tuner_statusbar_summary">Symbole in der Statusleiste anzeigen/ausblenden</string>
+    <string name="systemui_tuner_qs_title">Schnelleinstellungen</string>
+    <string name="systemui_tuner_qs_summary">Kacheln bearbeiten</string>
+
+    <!-- About Krexus -->
+    <string name="krexus_about_title">Über Krexus</string>
+    <string name="krexus_about_info">ROM</string>
+    <string name="krexus_about_info_summary">Krexus entstand aus einem einfachen Grund. Die letzten Versionen von Stock Android (Lollipop und Marshmallow) sind für mich bereits out-of-the-box nahezu perfekt. Trotzdem gibt es ein paar Dinge, die wie ich finde fehlen und vorhanden sein sollten. Aufbauend auf dem unveränderten AOSP-Code werden von mir persönlich getestete Features und Optimierungen integriert, um ein Stock Android zu kreieren <i>\"wie es sein sollte\"</i>.</string>
+    <string name="krexus_about_devs">Entwickler</string>
+    <string name="krexus_about_dev_title">George G.</string>
+    <string name="krexus_about_dev_summary">Auch bekannt als \"KreAch3R\". Nexus 5 (hammerhead) Besitzer.</string>
+    <string name="krexus_about_mentions">Erwähnungen</string>
+    <string name="krexus_about_mention1_title">Achilleas G.</string>
+    <string name="krexus_about_mention1_summary">Ist immer da</string>
+    <string name="krexus_about_mention2_title">Aldrin Holmes</string>
+    <string name="krexus_about_mention2_summary">Mentor, Lehrer, Freund</string>
+
+    <!-- Navigation Bar Height -->
+    <string name="navigation_bar_height">Höhe der Navigationsleiste</string>
+    <string name="navigation_bar_height_48">48 dp (Standard)</string>
+    <string name="navigation_bar_height_44">44 dp</string>
+    <string name="navigation_bar_height_40">40 dp</string>
+    <string name="navigation_bar_height_36">36 dp</string>
+    <string name="navigation_bar_height_32">32 dp</string>
+    <string name="navigation_bar_height_28">28 dp</string>
+    <string name="navigation_bar_height_24">24 dp</string>
+    <string name="navigation_bar_height_20">20 dp</string>
+    <string name="navigation_bar_height_0">0 dp (ausblenden)</string>
+
+    <!-- Battery saver color -->
+    <string name="battery_saver_color_title">Warnfarbe</string>
+    <string name="battery_saver_color_summary">Orangene Status-/Navigationsleiste bei aktiviertem Energiesparmodus</string>
+
+    <!--  BitSyko Layers header name -->
+    <string name="bitsyko_layers">Layers</string>
+
+    <!-- BitSyko Layers development settings switch -->
+    <string name="bitsyko_layers_dashboard">Layers Manager</string>
+    <string name="bitsyko_layers_dashboard_summary">Zeige den Layers Manager in den System-Einstellungen</string>
+
+    <!-- Volume button orientation based on current rotation -->
+    <string name="swap_volume_buttons_title">Lautstärketasten umkehren</string>
+    <string name="swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
+
+   <!-- Volume keys control media stream, instead of ring/notification -->
+   <string name="volume_key_control_media">Lautstärketasten ändern Medienlautstärke</string>
+
+    <!-- Quick settings disable on lockscreen -->
+    <string name="block_on_secure_keyguard_title">Schnelleinstellungen deaktivieren</string>
+    <string name="block_on_secure_keyguard_summary">Auf dem Sperrbildschirm werden keine Schnelleinstellungen angezeigt</string>
+
+    <!-- Hostname setting -->
+    <string name="device_hostname">Hostname des Geräts</string>
+
+    <!-- Recents search bar (part of the voice & assist default app) -->
+    <string name="recents_searchbar_title">Zeige Widget</string>
+    <string name="recents_searchbar_summary">Erlaubt es der Assistent-App ein Widget (z.B. eine Suchleiste) im Anwendungsverlauf anzuzeigen</string>
+
+   <!-- Notifications frequency --> 
+    <string name="notifications_frequency_limit_title">Benachrichtigungsfrequenz begrenzen</string>
+    <string name="notifications_frequency_limit_never">Niemals</string>
+    <string name="notifications_frequency_limit_setting">"Alle %1$s Sekunden"</string>
+</resources>
