@@ -44,6 +44,7 @@ import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
 import android.preference.SeekBarVolumizer;
 import android.preference.TwoStatePreference;
 import android.provider.MediaStore;
@@ -57,6 +58,7 @@ import android.util.Log;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.DropDownPreference;
+import com.android.settings.krexus.NotificationLights;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.notification.SettingPref;
@@ -68,8 +70,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 public class NotificationSettings extends SettingsPreferenceFragment implements Indexable {
     private static final String TAG = "NotificationSettings";
@@ -84,8 +84,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String KEY_VIBRATE_WHEN_RINGING = "vibrate_when_ringing";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
     private static final String KEY_NOTIFICATION = "notification";
-    private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
-    private static final String KEY_CHARGING_LED = "charging_led";
+    private static final String KEY_NOTIFICATION_LIGHTS = "notification_lights";
     private static final String KEY_LOCK_SCREEN_NOTIFICATIONS = "lock_screen_notifications";
     private static final String KEY_NOTIFICATION_ACCESS = "manage_notification_access";
     private static final String KEY_NOTIFICATIONS_FREQUENCY_LIMIT = "notifications_frequency_limit";
@@ -119,8 +118,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private Preference mPhoneRingtonePreference;
     private Preference mNotificationRingtonePreference;
     private TwoStatePreference mVibrateWhenRinging;
-    private TwoStatePreference mNotificationPulse;
-    private TwoStatePreference mChargingLed;
+    private PreferenceScreen mNotificationLightsPreference;
     private DropDownPreference mLockscreen;
     private SettingPref mNotificationsFrequencyLimitPref;
     private Preference mNotificationAccess;
@@ -175,8 +173,11 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
 
         final PreferenceCategory notification = (PreferenceCategory)
                 findPreference(KEY_NOTIFICATION);
-        initPulse(notification);
-	    initCharging(notification);
+        mNotificationLightsPreference = (PreferenceScreen) findPreference(KEY_NOTIFICATION_LIGHTS);
+        if (!getResources()
+                .getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+            notification.removePreference(mNotificationLightsPreference);
+        }
         initLockscreenNotifications(notification);
 
         mNotificationsFrequencyLimitPref = new SettingPref(SettingPref.TYPE_SYSTEM,
@@ -212,6 +213,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         mSettingsObserver.register(true);
         mReceiver.register(true);
         updateRingOrNotificationPreference();
+        updateNotificationLightsPreferenceSummary();
         updateEffectsSuppressor();
         for (VolumeSeekBarPreference volumePref : mVolumePrefs) {
             volumePref.onActivityResume();
@@ -262,6 +264,44 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         if (mRingerMode == ringerMode) return;
         mRingerMode = ringerMode;
         updateRingOrNotificationPreference();
+    }
+
+    private void updateNotificationLightsPreferenceSummary() {
+        PreferenceScreen preference = mNotificationLightsPreference;
+        StringBuilder summary = new StringBuilder();
+        int mode = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIFICATION_LIGHTS_MODE,
+                NotificationLights.NOTIFICATION_LIGHT_PULSE_MODE
+                |NotificationLights.LOW_BATTERY_PULSE_MODE);
+
+        ArrayList<String> notificationlightsList = new ArrayList<String>();
+        String delim = "";
+        if ((mode & NotificationLights.NOTIFICATION_LIGHT_PULSE_MODE) != 0) {
+            notificationlightsList.add(getResources().getString(R.string.notification_light_pulse_hint));
+        }
+        if ((mode & NotificationLights.CHARGING_BATTERY_LED_MODE) != 0) {
+            notificationlightsList.add(getResources().getString(R.string.charging_battery_led_hint));
+        }
+        if ((mode & NotificationLights.LOW_BATTERY_PULSE_MODE) != 0) {
+            notificationlightsList.add(getResources().getString(R.string.low_battery_pulse_hint));
+        }
+        for (int i = 0; i < notificationlightsList.size(); i++) {
+            String currentmode = notificationlightsList.get(i);
+            if (i != 0) {
+                currentmode = currentmode.toLowerCase();
+            }
+            summary.append(delim).append(currentmode);
+            if ((notificationlightsList.size() - i) > 2) {
+                delim = ", ";
+            } else {
+                delim = " & ";
+            }
+        }
+        if (notificationlightsList.size() > 0) {
+            preference.setSummary(summary);
+        } else {
+            preference.setSummary(getResources().getString(R.string.notification_lights_disabled));
+        }
     }
 
     private void updateEffectsSuppressor() {
@@ -431,94 +471,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 Settings.System.VIBRATE_WHEN_RINGING, 0) != 0);
     }
 
-    // === Pulse notification light ===
-
-    private void initPulse(PreferenceCategory parent) {
-        mNotificationPulse = (TwoStatePreference) parent.findPreference(KEY_NOTIFICATION_PULSE);
-        if (mNotificationPulse == null) {
-            Log.i(TAG, "Preference not found: " + KEY_NOTIFICATION_PULSE);
-            return;
-        }
-        if (!getResources()
-                .getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed)) {
-            parent.removePreference(mNotificationPulse);
-        } else {
-            updatePulse();
-            mNotificationPulse.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    final boolean val = (Boolean)newValue;
-                    return Settings.System.putInt(getContentResolver(),
-                            Settings.System.NOTIFICATION_LIGHT_PULSE,
-                            val ? 1 : 0);
-                }
-            });
-        }
-    }
-
-    private void updatePulse() {
-        if (mNotificationPulse == null) {
-            return;
-        }
-        try {
-            mNotificationPulse.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.NOTIFICATION_LIGHT_PULSE) == 1);
-        } catch (Settings.SettingNotFoundException snfe) {
-            Log.e(TAG, Settings.System.NOTIFICATION_LIGHT_PULSE + " not found");
-        }
-    }
-
-    // === Charging light ===
-
-    private void initCharging(PreferenceCategory parent) {
-        mChargingLed = (TwoStatePreference) parent.findPreference(KEY_CHARGING_LED);
-        if (mChargingLed == null) {
-            Log.i(TAG, "Preference not found: " + KEY_CHARGING_LED);
-            return;
-        }
-        if (!getResources()
-                .getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed)) {
-            parent.removePreference(mChargingLed);
-        } else {
-            //Find kernel version, reading proc/version
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader("/proc/version"), 256);
-                String version = reader.readLine();
-                if (!version.contains("google.com")) {
-                    updateCharging();
-                    mChargingLed.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-                        @Override
-                        public boolean onPreferenceChange(Preference preference, Object newValue) {
-                            final boolean val = (Boolean)newValue;
-                            return Settings.System.putInt(getContentResolver(),
-                                    Settings.System.CHARGING_BATTERY_LED,
-                                    val ? 1 : 0);
-                        }
-                    });
-                } else {
-                mChargingLed.setEnabled(false);
-		        mChargingLed.setSummary(R.string.charging_led_support_info);
-		        }
-		        // close the reader  
-		        reader.close();
-		   } catch (Exception e) {
-                 // This will catch any exceptions
-           } 
-        }
-    }
-
-    private void updateCharging() {
-        if (mChargingLed == null) {
-            return;
-        }
-        try {
-            mChargingLed.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.CHARGING_BATTERY_LED) == 1);
-        } catch (Settings.SettingNotFoundException snfe) {
-            Log.e(TAG, Settings.System.CHARGING_BATTERY_LED + " not found");
-        }
-    }
-
     // === Lockscreen (public / private) notifications ===
 
     private void initLockscreenNotifications(PreferenceCategory parent) {
@@ -629,10 +581,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private final class SettingsObserver extends ContentObserver {
         private final Uri VIBRATE_WHEN_RINGING_URI =
                 Settings.System.getUriFor(Settings.System.VIBRATE_WHEN_RINGING);
-        private final Uri NOTIFICATION_LIGHT_PULSE_URI =
-                Settings.System.getUriFor(Settings.System.NOTIFICATION_LIGHT_PULSE);
-        private final Uri CHARGING_BATTERY_LED_URI =
-                Settings.System.getUriFor(Settings.System.CHARGING_BATTERY_LED);
+        private final Uri NOTIFICATION_LIGHTS_MODE_URI =
+                Settings.System.getUriFor(Settings.System.NOTIFICATION_LIGHTS_MODE);
         private final Uri LOCK_SCREEN_PRIVATE_URI =
                 Settings.Secure.getUriFor(Settings.Secure.LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS);
         private final Uri LOCK_SCREEN_SHOW_URI =
@@ -646,8 +596,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
             final ContentResolver cr = getContentResolver();
             if (register) {
                 cr.registerContentObserver(VIBRATE_WHEN_RINGING_URI, false, this);
-                cr.registerContentObserver(NOTIFICATION_LIGHT_PULSE_URI, false, this);
-                cr.registerContentObserver(CHARGING_BATTERY_LED_URI, false, this);
+                cr.registerContentObserver(NOTIFICATION_LIGHTS_MODE_URI, false, this);
                 cr.registerContentObserver(LOCK_SCREEN_PRIVATE_URI, false, this);
                 cr.registerContentObserver(LOCK_SCREEN_SHOW_URI, false, this);
             } else {
@@ -661,11 +610,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
             if (VIBRATE_WHEN_RINGING_URI.equals(uri)) {
                 updateVibrateWhenRinging();
             }
-            if (NOTIFICATION_LIGHT_PULSE_URI.equals(uri)) {
-                updatePulse();
-            }
-            if (CHARGING_BATTERY_LED_URI.equals(uri)) {
-                updateCharging();
+            if (NOTIFICATION_LIGHTS_MODE_URI.equals(uri)) {
+                updateNotificationLightsPreferenceSummary();
             }
             if (LOCK_SCREEN_PRIVATE_URI.equals(uri) || LOCK_SCREEN_SHOW_URI.equals(uri)) {
                 updateLockscreenNotifications();

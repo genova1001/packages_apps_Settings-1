@@ -25,12 +25,6 @@
     <string name="advanced_reboot_title">Advanced reboot</string>
     <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery, bootloader or performing a soft reboot</string>
 
-    <!-- Sound & notification > Notification section: Title for the charging battery light option. [CHAR LIMIT=30] -->
-    <string name="charging_led_title">Charging battery light</string>
-    
-    <!-- Sound & notification > Notification section: Summary for the charging battery light kernel support. [CHAR LIMIT=30] -->
-    <string name="charging_led_support_info">3rd party kernel with the \"led always on\" patch is required.</string> 
-
     <!-- Development options - kill app long press back -->
     <string name="kill_app_longpress_back">Kill app back button</string>
     <string name="kill_app_longpress_back_summary">Kill the foreground app by long-pressing the back key</string>
@@ -201,4 +195,23 @@
     <!-- Display Settings -->
     <!-- Font size sample text -->
     <string name="font_size_sample">This is an example</string>
+
+    <!-- Sound & notification > Notification lights -->
+    <string name="notification_lights_title">Notification light</string>
+    <string name="notification_lights_disabled">Disabled</string>
+
+    <!-- Notification lights > App notification light pulse option -->
+    <string name="notification_light_pulse_title">App notifications</string>
+    <string name="notification_light_pulse_summary">Pulse when there are unread notifications</string>
+    <string name="notification_light_pulse_hint">Apps</string>
+
+    <!-- Notification lights > charging battery light option -->
+    <string name="charging_battery_led_title">During charging</string>
+    <string name="charging_battery_led_summary">Show power level while plugged in</string>
+    <string name="charging_battery_led_hint">Charger</string>
+
+    <!-- Notification lights > low battery pulse option -->
+    <string name="low_battery_pulse_title">Low battery</string>
+    <string name="low_battery_pulse_summary">Pulse when battery is low</string>
+    <string name="low_battery_pulse_hint">Low battery</string>
 </resources>
