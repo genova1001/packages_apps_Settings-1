@@ -102,19 +102,11 @@
         android:key="notification"
         android:title="@string/notification_section_header" >
 
-        <!-- Pulse notification light -->
-        <SwitchPreference
-                android:key="notification_pulse"
-                android:title="@string/notification_pulse_title"
-                android:persistent="false" />
-                
-        <!-- Charging Battery Light -->
-        <SwitchPreference
-                android:key="charging_led"
-                android:title="@string/charging_led_title"
-                android:switchTextOff=""
-                android:switchTextOn=""
-                android:persistent="false" />                
+        <!-- Notification lights -->
+        <PreferenceScreen
+                android:key="notification_lights"
+                android:fragment="com.android.settings.krexus.NotificationLights"
+                android:title="@string/notification_lights_title" />
 
          <!-- When device is locked -->
         <com.android.settings.DropDownPreference
