@@ -27,6 +27,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
 import com.android.internal.logging.MetricsLogger;
+import com.android.internal.util.krexus.DevUtils;
 import com.android.settings.krexus.preference.SystemSettingSwitchPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -68,7 +69,14 @@ public class NotificationLights extends SettingsPreferenceFragment implements On
                         NOTIFICATION_LIGHT_PULSE_MODE|LOW_BATTERY_PULSE_MODE);
 
         mNotificationLightPulse.setChecked((mode & NOTIFICATION_LIGHT_PULSE_MODE) != 0);
-        mChargingBatteryLed.setChecked((mode & CHARGING_BATTERY_LED_MODE) != 0);
+        if (!DevUtils.isKernelGoogleStock()) {
+            mChargingBatteryLed.setChecked((mode & CHARGING_BATTERY_LED_MODE) != 0);
+        } else {
+            // Kernel seems to be stock google, disable this option
+            mChargingBatteryLed.setChecked(false);
+            mChargingBatteryLed.setEnabled(false);
+            mChargingBatteryLed.setSummary(getResources().getString(R.string.charging_battery_led_support_info));
+        }
         mLowBatteryPulse.setChecked((mode & LOW_BATTERY_PULSE_MODE) != 0);
 
         mNotificationLightPulse.setOnPreferenceChangeListener(this);

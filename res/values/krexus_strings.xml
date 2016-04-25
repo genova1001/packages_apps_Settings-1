@@ -209,6 +209,7 @@
     <string name="charging_battery_led_title">During charging</string>
     <string name="charging_battery_led_summary">Show power level while plugged in</string>
     <string name="charging_battery_led_hint">Charger</string>
+    <string name="charging_battery_led_support_info">3rd party kernel is required</string>
 
     <!-- Notification lights > low battery pulse option -->
     <string name="low_battery_pulse_title">Low battery</string>
