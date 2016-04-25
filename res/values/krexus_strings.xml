@@ -19,7 +19,7 @@
     <string name="device_name">Device name</string>
 
     <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
-    <string name="supersu_title">SuperSU</string>
+    <string name="supersu_title" translatable="false">SuperSU</string>
 
     <!-- Advanced reboot options -->
     <string name="advanced_reboot_title">Advanced reboot</string>
@@ -145,11 +145,11 @@
     <string name="krexus_about_info">ROM</string>
     <string name="krexus_about_info_summary">Krexus was born out of a simple necessity. The latest releases of stock Android (namely Lollipop and Marshmallow) were pretty close to my idea of a perfect android ROM, yet missing some elements, which are meant to be included in stock Android, at least for me. Starting from a clean AOSP environment, only specific features and fixes are included, which are personally tested, with one goal in mind. To create a stock like android ROM, \"as it should be\".</string>
     <string name="krexus_about_devs">Developer</string>
-    <string name="krexus_about_dev_title">George G.</string>
+    <string name="krexus_about_dev_title" translatable="false">George G.</string>
     <string name="krexus_about_dev_summary">Also known as \"KreAch3R\"</string>
     <string name="krexus_about_maintainer">Maintainer</string>
     <string name="krexus_about_mentions">Honorable mentions</string>
-    <string name="krexus_about_mention1_title">Achilleas G.</string>
+    <string name="krexus_about_mention1_title" translatable="false">Achilleas G.</string>
     <string name="krexus_about_mention1_summary">For always being there!</string>
 
     <!-- Navigation Bar Height -->
@@ -169,10 +169,10 @@
     <string name="battery_saver_color_summary">Enable orange status - navigation bars when battery saver is activated</string>
 
     <!--  BitSyko Layers header name -->
-    <string name="bitsyko_layers">Layers</string>
+    <string name="bitsyko_layers" translatable="false">Layers</string>
 
     <!-- BitSyko Layers development settings switch -->
-    <string name="bitsyko_layers_dashboard">Layers manager</string>
+    <string name="bitsyko_layers_dashboard" translatable="false">Layers manager</string>
     <string name="bitsyko_layers_dashboard_summary">Show the manager in the Settings dashboard</string>
 
     <!-- Volume button orientation based on current rotation -->
