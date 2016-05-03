@@ -17,6 +17,7 @@
 package com.android.settings;
 
 import com.android.internal.logging.MetricsLogger;
+import com.android.internal.util.krexus.DevUtils;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.DropDownPreference.Callback;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -439,10 +440,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mDozePreference.setChecked(value != 0);
         }
 
-        // Update tap to wake if it is available.
-        if (mTapToWakePreference != null) {
+        // Update tap to wake if it is available and kernel is google stock
+        if (mTapToWakePreference != null && DevUtils.isKernelGoogleStock()) {
             int value = Settings.Secure.getInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, 0);
             mTapToWakePreference.setChecked(value != 0);
+        } else if (mTapToWakePreference != null) {
+            mTapToWakePreference.setChecked(false);
+            mTapToWakePreference.setEnabled(false);
+            mTapToWakePreference.setSummary(getResources().getString(R.string.tap_to_wake_kernel_support));
         }
 
         // Update camera gesture #1 if it is available.

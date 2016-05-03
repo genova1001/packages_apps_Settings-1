@@ -215,4 +215,7 @@
     <string name="low_battery_pulse_title">Low battery</string>
     <string name="low_battery_pulse_summary">Pulse when battery is low</string>
     <string name="low_battery_pulse_hint">Low battery</string>
+
+    <!-- Display > Double Tap to Wake (for supported devices) -->
+    <string name="tap_to_wake_kernel_support">Use your 3rd party kernel to enable this option</string>
 </resources>
