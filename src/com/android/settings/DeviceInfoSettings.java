@@ -541,40 +541,25 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
     /**
      * Returns the Hardware or Processor value in /proc/cpuinfo,
-     * else returns "Unknown".
+     * else returns "Unknown" (regex can change with a device overlay)
      * @return a string that describes the processor
      */
-    private static String getDeviceProcessorInfo() {
+    private String getDeviceProcessorInfo() {
         // Hardware or Processor : XYZ
-        final String PROC_REGEX = ".*\\s*:\\s*(.*?)(?:\\(.*)?$"; /* hardware or processor string */
+        final String PROC_REGEX = getResources().getString(R.string.processor_regex); /* hardware or processor string */
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(FILENAME_PROC_CPUINFO));
             String cpuinfo;
-            String hardware = "";
-            String processor = "";
 
             try {
                 while (null != (cpuinfo = reader.readLine())) {
-                    if (cpuinfo.contains("Hardware")) {
-                        Matcher m = Pattern.compile(PROC_REGEX).matcher(cpuinfo);
-                        if (m.matches()) {
-                            hardware = m.group(1);
-                        }
-                    } else if (cpuinfo.contains("Processor")) {
-                        Matcher m = Pattern.compile(PROC_REGEX).matcher(cpuinfo);
-                        if (m.matches()) {
-                            processor = m.group(1);
-                        }
+                    Matcher m = Pattern.compile(PROC_REGEX).matcher(cpuinfo);
+                    if (m.matches()) {
+                        return m.group(1);
                     }
                 }
-                if (hardware.isEmpty() && processor.isEmpty()) {
-                    return "Unknown";
-                } else if (hardware.length() > processor.length()) {
-                    return hardware;
-                } else {
-                    return processor;
-                }
+                return "Unknown";
             } finally {
                 reader.close();
             }

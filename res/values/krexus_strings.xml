@@ -12,6 +12,7 @@
 
     <!-- About phone screen, processor info label  [CHAR LIMIT=40] -->
     <string name="processor_info">Processor</string>
+    <string name="processor_regex" translatable="false">Hardware\\s*:\\s*(.*?)(?:\\(.*)?$</string>
     
     <!-- About phone screen, Device model -->
     <string name="device_model">Device model</string>
