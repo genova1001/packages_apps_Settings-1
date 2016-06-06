@@ -324,4 +324,17 @@
         <item>@string/app_ops_labels_toggle_nfc</item>
         <item>@string/app_ops_labels_toggle_mobile_data</item>
     </string-array>
+    
+    <!-- QS tile columns -->
+    <string-array name="qs_num_columns_entries" translatable="false">
+        <item>@string/qs_columns_three</item>
+        <item>@string/qs_columns_four</item>
+        <item>@string/qs_columns_five</item>
+    </string-array>
+
+    <string-array name="qs_num_columns_values" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>
