@@ -403,4 +403,8 @@
     
     <!-- CyanogenMod lock screen shortcuts -->
     <string name="lock_screen_targets_message">Bottom L/R shortcuts</string>
+    
+    <!-- Force expand notifications -->
+    <string name="notification_force_expand_title">Force expanded notifications</string>
+    <string name="notification_force_expand_summary">Auto expands notifications on apps that support it</string>
 </resources>
