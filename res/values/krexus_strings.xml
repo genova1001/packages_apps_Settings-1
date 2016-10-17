@@ -400,4 +400,7 @@
     <string name="qs_columns_three">Three</string>
     <string name="qs_columns_four">Four</string>
     <string name="qs_columns_five">Five</string>
+    
+    <!-- CyanogenMod lock screen shortcuts -->
+    <string name="lock_screen_targets_message">Bottom L/R shortcuts</string>
 </resources>

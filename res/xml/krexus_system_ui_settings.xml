@@ -117,6 +117,13 @@
 	    android:id="@+id/qs_panel_settings"
 	    android:fragment="com.android.settings.krexus.QSPanelSettings"
 	    android:title="@string/qs_panel_title" />
+	    
+        <PreferenceScreen
+            android:title="@string/lock_screen_targets_message" >
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.cm.LockScreenShortcutsActivity" />
+        </PreferenceScreen>
 	
 	<com.android.settings.krexus.preference.SystemSettingSwitchPreference
             android:key="systemui_recents_mem_display"
