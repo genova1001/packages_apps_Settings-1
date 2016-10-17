@@ -106,5 +106,10 @@
             android:persistent="false" />
 
     </PreferenceCategory>
-
+    
+    <!-- Extra settings-->
+    <PreferenceCategory
+        android:key="extra"
+        android:title="@string/extra_section_header" >
+        
 </PreferenceScreen>

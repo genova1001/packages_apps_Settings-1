@@ -373,5 +373,7 @@
     <string name="app_ops_labels_start_at_boot">Start at boot</string>
     <string name="app_ops_labels_toggle_nfc">Toggle NFC</string>
     <string name="app_ops_labels_toggle_mobile_data">Toggle cellular data</string>
-
+    
+    <!-- Extra settings -->
+   <string name="extra_section_header">Extra settings</string>
 </resources>
