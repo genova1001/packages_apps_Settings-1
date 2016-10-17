@@ -112,6 +112,12 @@
         android:key="extra"
         android:title="@string/extra_section_header" >
       
+	<!-- Quick Settings -->
+        <PreferenceScreen
+	    android:id="@+id/qs_panel_settings"
+	    android:fragment="com.android.settings.krexus.QSPanelSettings"
+	    android:title="@string/qs_panel_title" />
+	
 	<com.android.settings.krexus.preference.SystemSettingSwitchPreference
             android:key="systemui_recents_mem_display"
             android:title="@string/recents_show_membar_title"
